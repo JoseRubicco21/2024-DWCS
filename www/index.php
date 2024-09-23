@@ -12,16 +12,23 @@
         <?php
         echo "<h1>¡Hola, Bienvenido/a al módulo de DWCS!</h1>";
         require './componentTest.php';
-        require './NotReact.php';
-         
-        $NotReact = new NotReact();
-
+        require_once './NotReact.php';
+        require_once './NotuseState.php';
+        
         NotReact::render(componentTest((object)array("title" => "Test title", "text" => "Some text here")));
         NotReact::render(componentTest((object)array(
             "title" => 'This is react in php',
             "text" => 'It even has props lol'
-        )))
-        
+        )));
+    
+        $setTest = function () {
+            echo "Setter";
+        };
+
+        notUseState(["test", 0, $setTest]);
+
+        echo implode(",",NotReact::getInstance()->getStorage());
+        //NotReact::getInstance()->getStorage();
         ?>
     </div>
 </body>
