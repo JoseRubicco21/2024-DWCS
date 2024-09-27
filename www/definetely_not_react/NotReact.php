@@ -1,5 +1,4 @@
 <?php declare (strict_types=1);
-require_once('./NotAComponentInterface.php');
 
 class NotReact {
     
@@ -20,7 +19,7 @@ class NotReact {
         return self::$instance;
     }
 
-    static function render(NotAComponent | mixed $component) : void {
+    static function render(mixed $component) : void {
             if(gettype($component) == 'NotAComponent') {
                 echo $component->render();
             } else if (is_array($component)) {

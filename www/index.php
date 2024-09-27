@@ -25,8 +25,6 @@
             echo "Setter";
         };
 
-        notUseState(["test", 0, $setTest]);
-
         echo implode(",",NotReact::getInstance()->getStorage());
         //NotReact::getInstance()->getStorage();
         ?>
