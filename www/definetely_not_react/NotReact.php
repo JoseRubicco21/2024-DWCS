@@ -20,13 +20,13 @@ class NotReact {
     }
 
     static function render(mixed $component) : void {
-            if(gettype($component) == 'NotAComponent') {
-                echo $component->render();
-            } else if (is_array($component)) {
-                foreach ($component as $item) {
-                    self::render($item);
-                }
-            }
+            //if(gettype($component) == 'NotAComponent') {
+                echo $component;
+            //} else if (is_array($component)) {
+              //  foreach ($component as $item) {
+                //    self::render($item);
+                //}
+            //}
     }
     
 }

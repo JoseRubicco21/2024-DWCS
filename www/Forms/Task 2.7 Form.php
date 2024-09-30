@@ -1,5 +1,7 @@
 <?php declare(strict_types=1); 
 
+require_once('../definetely_not_react/NotReact.php');
+require_once('../definetely_not_react/NotAHello.php');
 // We create the varaibles we're going to use:
 $quantity = $drink = $totalPrice = "";
 
@@ -16,11 +18,12 @@ $quantityError = $drinkError = "";
 // If it has been submitted then we validate, otherwise we just display the form.
 // We do errors here on to check if something has been submitted
 
-ipf($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // We should run validations for each case we want after check if it's not empty.
     if(empty($_POST["quantity"]) || $_POST["quantity"] == " ") {
 
+    // One could use is_numeric to validate if an input is of type int, float or a "number"
     if(!is_int($_POST["quantity"])) {
             
         $quantityError = "Quantity needs to be an int.";
@@ -85,8 +88,15 @@ function calculatePrice(array $drink, float $qtty) : float{
     return $totalPrice;
 }
 
+$React = NotReact::getInstance();
+$props = [
+    "name" => "jose",
+    "email" => "jose@test"
+];
+
+
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +114,9 @@ function calculatePrice(array $drink, float $qtty) : float{
     </form>
     
     <?php if (!empty($totalPrice)) { ?>
-        <p><?php echo "You have asked for $quantity bottles of " .  $arrayOfProducts[$drink]["text"] . " Your total is: $totalPrice euros."; ?></p>
+        <p><?php echo "You have asked for $quantity bottles of " .  $arrayOfProducts[$drink]["text"] . " Your total is: $totalPrice euros.";
+            // $React::render(NotAHello($props));
+        ?></p>
     <?php } ?>
 </body>
 </html>
