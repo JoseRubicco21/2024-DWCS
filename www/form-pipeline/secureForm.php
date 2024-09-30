@@ -1,13 +1,8 @@
 <?php declare(strict_types=1);
-
-$nombre = " ";
-$email = " ";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $nombre = testData($_POST["formNombre"]);   
-    $email = testData($_POST["formEmail"]);
-}
+$nombre = $email = "";
+// Errors:
+$nameError = "Name is required.";
+$emailError = "Email is required.";
 
 function testData(mixed $data) : mixed {
     $data = trim($data);
@@ -16,28 +11,23 @@ function testData(mixed $data) : mixed {
     return $data;
 };
 
-
-function validateString(string $data) : string{
+function validateString(string $data) : bool{
     if(!preg_match("/^[a-zA-Z-' ]*$/", $data)) {
         $data = "Only letters and white space is allowed";
-        return $data;
+        return true;
     } else {
-        return $data;
+        return false;
     }
 }
 
-function validateEmail(string $data) : string {
+function validateEmail(string $data) : bool {
     if(!filter_var($data, FILTER_VALIDATE_EMAIL)) {
         $data = "Invalid email.";
-        return $data;
+        return true;
     } else {
-        return $data;
+        return false;
     }
 }
-
-
-//function validateInt(){}
-//function validateFloat(){}
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +38,22 @@ function validateEmail(string $data) : string {
     <title>Document</title>
 </head>
 <body>
+<!-- If: If it's loading for first time-->
+<?php
+if (!isset($_POST["enviar"])) {?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" >
-        Name <input type="text" name="formNombre" id="fomrNombre" required>
-        Email <input type="text" name="formEmail" id="formEmail" required>
-        <input type="submit" value="Submit">
+        Name <input type="text" name="formNombre" id="fomrNombre" > <?php if(empty($_POST["formNombre"]) && validateString($_POST["formNombre"])) echo "<span>$nameError</span>";?>
+        Email <input type="text" name="formEmail" id="formEmail" > <?php if(empty($_POST["formEmail"]) && validateEmail($_POST["formEmail"])) echo "<span>$emailError</span>";?>
+        <input type="submit" value="Submit" name="enviar">
     </form> 
-    </p>
+<?php 
+} else {
+    $nombre = testData($_POST["formNombre"]);   
+    $email =  testData($_POST["formEmail"]);
+?>
+    <h1> Hello <?php echo $nombre?> , your email is <?php echo $email?><h1>
+<?php
+}
+?>
 </body>
 </html>
