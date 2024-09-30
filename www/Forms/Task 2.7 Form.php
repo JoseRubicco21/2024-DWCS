@@ -16,7 +16,7 @@ $quantityError = $drinkError = "";
 // If it has been submitted then we validate, otherwise we just display the form.
 // We do errors here on to check if something has been submitted
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+ipf($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // We should run validations for each case we want after check if it's not empty.
     if(empty($_POST["quantity"]) || $_POST["quantity"] == " ") {
@@ -86,7 +86,7 @@ function calculatePrice(array $drink, float $qtty) : float{
 }
 
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
