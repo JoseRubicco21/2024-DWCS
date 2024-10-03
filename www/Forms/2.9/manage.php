@@ -17,6 +17,7 @@ $msgError = "Name is required";
 </head>
 <body>
     <main>
+    <h1>First practice using forms</h1>
     <?php 
     
     if($_SERVER["REQUEST_METHOD"] == "POST")

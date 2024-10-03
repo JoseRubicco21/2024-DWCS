@@ -123,6 +123,7 @@ function createRadios(array $radioOptions, string $radioName, string $value){
 </head>
 <body>
     <main>
+        <h1>First practice using forms</h1>
         <form action="./manage.php" method="POST">
             <div>
                 <label for="form-name">Names and Surnames</label>
