@@ -1,0 +1,73 @@
+:root {
+	/*Colors*/
+	--foreground: #526459;
+	--accent: #c1a16d;
+	--background: #d8ecdf;
+	--background-accent: #90af9d;
+	--text-color: #000000;
+	--text-alt: #f1f1f1;
+	--background-alt: #dfceb9;
+}
+
+/* Headers */
+body {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+}
+
+header {
+	display: grid;
+	align-items: center;
+	background-color: var(--background);
+	grid-template-columns: 1fr 10fr 1fr;
+	box-shadow: 0px 0px 20px 0px;
+	z-index: 1;
+}
+
+header > * {
+	margin: 0px 20px;
+}
+
+header > button {
+	width: 100px;
+	padding: 10px;
+	border: none;
+	background-color: var(--foreground);
+	border-radius: 10px;
+	color: var(--text-alt);
+}
+
+#header-logo {
+	width: 72px;
+	height: 72px;
+}
+
+#header-title {
+	color: var(--foreground);
+	font-size: 24px;
+}
+
+/* Footer */
+
+footer {
+	display: flex;
+	justify-content: center;
+	background-color: var(--foreground);
+	color: var(--text-alt);
+}
+
+/* Main */
+
+main {
+	min-height: 90vh;
+	background-color: var(--background-alt);
+}
+
+/* Hero Section */
+
+.hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
