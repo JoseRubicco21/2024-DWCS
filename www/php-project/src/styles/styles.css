@@ -1,0 +1,246 @@
+:root {
+	/*Colors*/
+	--foreground: #526459;
+	--foreground-dark: #3a4a40;
+	--accent: #c1a16d;
+	--accent-dark: #a7854e;
+	--background: #d8ecdf;
+	--background-accent: #90af9d;
+	--text-color: #000000;
+	--text-alt: #f1f1f1;
+	--background-alt: #dfceb9;
+	--error: #e48383;
+	--error-text: #7a2c2c;
+}
+
+body {
+	margin: 0 auto;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	align-content: center;
+	font-family: 'Merriweather', 'serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+header,
+footer,
+b {
+	font-family: 'Poppins', 'sans-serif';
+}
+
+main {
+	flex-grow: 1;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--background);
+}
+
+footer {
+	background-color: var(--foreground);
+	color: var(--text-alt);
+	text-align: center;
+}
+
+ul {
+	padding: 0px;
+	list-style: none;
+}
+
+#header-logo {
+	margin: 5px;
+	width: 48px;
+	height: 48px;
+}
+
+#header-title {
+	display: inline;
+}
+
+.link-button {
+	background-color: var(--foreground);
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5px;
+	color: var(--text-alt);
+	text-decoration: none;
+}
+
+.link-button:hover {
+	cursor: pointer;
+	background-color: var(--foreground-dark);
+}
+
+main {
+	background-image: url('../../assets/Ecobooks.jpg');
+	background-size: cover;
+}
+
+.hero-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 90vh;
+}
+
+.hero-title,
+.hero-subtitle {
+	color: var(--foreground-dark);
+	margin: 10px;
+	padding: 0px;
+}
+
+.hero-title {
+	font-size: 48px;
+}
+
+.hero {
+	background-color: rgba(255, 255, 255, 0.45);
+	padding: 40px;
+	border-radius: 20px;
+	margin: 50px;
+	backdrop-filter: blur(10px);
+	width: auto;
+}
+
+.backdrop-filter {
+	background-color: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(10px);
+}
+
+.hero-list {
+	list-style: none;
+	padding: 10px;
+}
+
+.hero-list-item {
+	margin: 20px;
+	font-size: 16px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 10 auto;
+}
+
+input,
+select {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	border: 1px solid var(--foreground-dark);
+	margin-left: 10px;
+}
+
+label {
+	margin-left: 10px;
+}
+
+input[type='submit'] {
+	padding: 10px;
+	background-color: var(--foreground);
+	color: var(--text-alt);
+}
+
+input[type='submit']:hover {
+	cursor: pointer;
+	background-color: var(--foreground-dark);
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	margin: 100px auto;
+	padding: 25px;
+	width: auto;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.form-row {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-group-item {
+	display: flex;
+	margin: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-block {
+	display: flex;
+	margin: 10px auto;
+	width: fit-content;
+	background-color: var(--error);
+	color: var(--error-text);
+	border: 1px solid var(--error-text);
+	padding: 5px;
+	animation-name: ease-in-out;
+	animation-duration: 0.8s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.receipt {
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 5px;
+	padding: 10px;
+}
+
+.card-title {
+	color: #3a4a40;
+}
+
+.card-image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.book-container {
+	display: flex;
+}
+
+.hero-col {
+	display: flex;
+	flex-direction: row;
+}
+
+@keyframes ease-in-out {
+	0% {
+		transform: translate3d(0px, 40px, 0px);
+		opacity: 0%;
+	}
+
+	100% {
+		transform: translate3d(0px, 0px, 0px);
+	}
+}

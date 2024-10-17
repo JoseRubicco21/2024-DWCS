@@ -25,7 +25,25 @@ $Users = unserialize(file_get_contents(USER_DATA));
     description : string
     authors : Array<String>
 */
-$Books = [];
+$Books = [
+    [
+        "id" => 1,
+        "isbn" => 9798602477429,
+        "title" => "You don't know JS Yet: Get Started",
+        "description" => "prepares you for the journey ahead, first surveying the language then detailing how the rest of the You Don't Know JS Yet book series guides you to knowing JS more deeply.",
+        "authors" => ["Simpson, Kyle"],
+        "image" => "/php-project/assets/Ecobooks2.jpg"
+    ],
+    [
+        "id" => 2,
+        "isbn" => 9780553270969,
+        "title" => "The book of Five Rings",
+        "description" => "The Book of Five Rings (五輪書, Go Rin no Sho) is a text on kenjutsu and the martial arts in general, written by the Japanese swordsman Miyamoto Musashi around 1645.",
+        "authors" => ["Miyamoto Musashi"],
+        "image" => "/php-project/assets/Ecobooks2.jpg"
+    ],
+
+];
 
 /*
     Language Schema. Id is given by their position in the array.

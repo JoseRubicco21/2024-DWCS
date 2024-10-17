@@ -44,11 +44,36 @@ function generateReceiptItem(mixed $keyName, string $value) : void {
 }
 
 function generateReceiptList(array $listItems){
-    echo "<div><ul>";
+    echo "<div class='card poppins-regular'><ul>";
     foreach($listItems as $item => $itemValue){
         generateReceiptItem($item, $itemValue);
     }
     echo "</ul></div>";
 }
 
+function generateBookCard(array $data){
+    echo "
+    <div class='card hero backdrop-filter'>
+        <div class='card-title'>
+            <h2>$data[title]<h2>
+        </div>
+        <div class='card-image-container'>
+            <img class='card-image' src='$data[image]'>
+        </div>
+        <div class='card-content'>
+            <p>$data[description]</p>
+            <p><b>Authors: </b>" . implode(", " , $data["authors"]) .
+    "   </div>
+    </div>
+    ";
+}
+
+
+function generateBookCards(array $Books) {
+    echo "<div class='book-container'>";
+    foreach($Books as $book){
+        generateBookCard($book);
+    }
+    echo "</div>";
+}
 ?>
